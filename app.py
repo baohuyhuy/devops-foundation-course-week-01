@@ -26,22 +26,43 @@ def add():
 # Optional: Completing the following TODOs is optional for more practice
 
 # TODO: Implement the 'multiplication operation'
-# @app.route('/api/multiply', methods=['POST'])
-# def multiply():
-#     data_request = request.get_json()
-#     # Check if the input is valid
-#     # Perform multiplication
-#     # Return the result
+@app.route('/api/multiply', methods=['POST'])
+def multiply():
+    data_request = request.get_json()
+    if (not data_request or 'number_1' not in data_request or
+            'number_2' not in data_request):
+        return jsonify({'error': 'Invalid input'}), 400
+
+    number_1 = float(data_request['number_1'])
+    number_2 = float(data_request['number_2'])
+    result = number_1 * number_2
+    return jsonify({'result': result})
 
 # TODO: Implement the 'subtraction operation'
-# @app.route('/api/subtract', methods=['POST'])
-# def subtract():
-#     # Write code here
+@app.route('/api/subtract', methods=['POST'])
+def subtract():
+    data_request = request.get_json()
+    if (not data_request or 'number_1' not in data_request or
+            'number_2' not in data_request):
+        return jsonify({'error': 'Invalid input'}), 400
+
+    number_1 = float(data_request['number_1'])
+    number_2 = float(data_request['number_2'])
+    result = number_1 - number_2
+    return jsonify({'result': result})
 
 # TODO: Implement the 'division operation'
-# @app.route('/api/divide', methods=['POST'])
-# def divide():
-#     # Write code here
+@app.route('/api/divide', methods=['POST'])
+def divide():
+    data_request = request.get_json()
+    if (not data_request or 'number_1' not in data_request or
+            'number_2' not in data_request):
+        return jsonify({'error': 'Invalid input'}), 400
+
+    number_1 = float(data_request['number_1'])
+    number_2 = float(data_request['number_2'])
+    result = number_1 / number_2
+    return jsonify({'result': result})
 
 # TODO: Add more routes and operations! Create your own calculator!
 # For example:
