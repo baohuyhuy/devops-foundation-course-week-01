@@ -7,6 +7,8 @@ name: Python CI/CD Pipeline
 on:
   push:
   pull_request:
+  paths:
+    - '**.py'
 
 jobs:
   # Build job
